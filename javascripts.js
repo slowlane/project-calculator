@@ -1,6 +1,6 @@
 let calcInput = " ";
 let firstOperand = 0;
-let secondOperand = 0;
+//let secondOperand = 0;
 let result = 0;
 let previousOperator = null;
 let passed = false;
@@ -33,7 +33,6 @@ function populateDisplay(text) {
 function operators(number, operator, numberTwo) {
 
     if (!Number.isNaN(numberTwo)) {
-        //console.log("Yo..");
         switch (operator) {
             case "=":
                 return number = numberTwo;
@@ -111,13 +110,6 @@ for (let i = 0; i < 10; i++) {
     newButton.appendChild(content);
     newButton.addEventListener("click", e => {
         populateDisplay(e.target.innerText);
-        /*if(clicked){
-            
-            input.value = "";
-            //Checking if clicked an oeprator
-            //clicked = false;
-        }*/
-        
     });
 
     numbersDiv.appendChild(newButton);
