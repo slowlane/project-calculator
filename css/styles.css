@@ -3,6 +3,10 @@
     margin: 0;
 }
 
+button {
+    border-radius: 4px;
+}
+
 .surrounding {
     display:flex;
     flex-direction: column;
@@ -13,12 +17,24 @@
     background-color: rgba(14, 0, 15, 0.45);
 }
 
+.card {
+    display: flex;
+    flex-direction: column;
+    width: 450px;
+    height: 54vh;
+    background-color: rgba(0, 0, 40, 0.60);
+    align-items: center;
+}
+
 .calc-form {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     align-items: center;
     gap: 1rem;
-   
+    width: 60%;
+    align-self: flex-start;
+    margin-left: 50px;
+    margin-top: 15px;
 }
 
 .calculate-input {
@@ -26,50 +42,71 @@
     padding: 1rem;
     margin-bottom: 25px;
     font-size: 2rem;
+    width: 200px;
+    margin-top: 25px;
+    align-self: flex-start;
 }
 
+.for-buttons {
+    display: flex;
+    flex-direction: column;
+    height: 79px;
+    gap: 4px;
+}
 
+.clear-button {
+    flex: 1;
+    width: 100px;
+    height: 4.5vh;
+    font-size: 1.5rem;
+    padding: 0.20rem;
+    background-color: rgba(225, 220, 220, 0.897);
+    color: black;
+}
 
 .button-div {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-evenly;
     align-items: center;
     gap: 0.7rem;
     margin-bottom: 2rem;
+    width: 70%;
+    align-self: flex-start;
+    margin-left: 50px;
+
 }
 
 .numbers-div {
     display: flex;
-    flex-wrap: wrap;
     gap: 0.7rem;
     justify-content: space-evenly;
     align-items: center;
-    width: 33%;
+    flex-wrap: wrap;
+    width: 70%;
+    align-self: flex-start;
+    margin-left: 50px;
+
 }
 
-button {
-    border-radius: 4px;
-}
+
 
 .calc-button {
     flex: 1;
-    padding: 2rem;
-    width: 100px;
-    max-width: 100px;
-    height: 10vh;
-    font-size: 3rem;
+    text-align: center;
+    line-height: 10px;
+    padding: 2rem 2rem;
+    width: 50px;
+    height: 50px;
+    font-size: 2rem;
     background-color: rgba(0, 0, 0, 0.55);
     color: white;
     box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.8);
 }
 
-.clear-button {
-    flex: 1;
-    width: 120px;
-    height: 5vh;
-    font-size: 1.5rem;
-    padding: 0.25rem;
-    background-color: rgba(225, 220, 220, 0.897);
-    color: black;
 
+
+ .operator {
+    background-color:rgba(220, 100, 220, 0.8);
+    filter: brightness(95%);
 }
