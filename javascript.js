@@ -32,44 +32,56 @@ function populateDisplay(text) {
 function operate(operator) {
     //let splitInput = calcInput.split("");
    
-    
+    let resultForCalc = 0;
     let firstOperandForCalc = 0;
     let secondOperandForCalc = 0;
+    
 
     if (firstOperand != 0) {
         secondOperand = parseInt(input.value);
         //Store operands and reset global operands
         firstOperandForCalc = firstOperand;
         secondOperandForCalc = secondOperand;
-
+        resultForCalc = result;
+        
         
         firstOperand = 0;
         secondOperand = 0;
+
+
         
         if (previousOperator === "-") {
-            result = firstOperandForCalc - secondOperandForCalc;
-            input.value = result;
+            resultForCalc = firstOperandForCalc - secondOperandForCalc;
+            input.value = resultForCalc;
             console.log(result + " sub operand");
         } else if (previousOperator === "+") {
-            result = firstOperandForCalc + secondOperandForCalc;
-            input.value = result;
+            resultForCalc = firstOperandForCalc + secondOperandForCalc;
+            input.value = resultForCalc;
             console.log(result + " add operand");
         } else if (previousOperator === "*") {
-            result = firstOperandForCalc * secondOperandForCalc;
-            input.value = result;
+            resultForCalc = firstOperandForCalc * secondOperandForCalc;
+            input.value = resultForCalc;
             console.log(result + " mult operand");
         } else if (previousOperator === "/") {
-            result = firstOperandForCalc * secondOperandForCalc;
-            input.value = result;
+            resultForCalc = firstOperandForCalc / secondOperandForCalc;
+            input.value = resultForCalc;
             console.log(result + " div operand");
         } 
-        if(previousOperator != "="){
-            input.value = "";
+
+
+        /*if(operator = "="){
+            input.value = result;
+            result = 0;
         }
+        if(previousOperator != "="){
+            result = input.value;
+            input.value = "";
+        }*/
 
     } else {
         firstOperand = parseInt(input.value);
-        input.value = "";
+        result = firstOperand;
+        //
         previousOperator = operator;
         //ChECK BELOW LATER
         //For now since can write with keyboard, check input first
@@ -78,6 +90,15 @@ function operate(operator) {
         }*/
 
     }
+
+    /*if(operator === "="){
+        input.value = result;
+        result = 0;
+    } else if (operator === "+"){
+        input.value = "";
+        result += resultForCalc;
+        console.log(result);
+    }*/
 
 
 
