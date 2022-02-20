@@ -1,6 +1,5 @@
 let calcInput = " ";
-let firstOperand = 0;
-//let secondOperand = 0;
+let inputOperand = 0;
 let result = 0;
 let previousOperator = null;
 let passed = false;
@@ -10,19 +9,19 @@ const buttonsDiv = document.querySelector(".button-div");
 const input = document.querySelector(".calculate-input");
 const clearButton = document.querySelector(".clear-button");
 
-function add(num1, num2) {
-    return num1 + num2;
+function add(numOne, numTwo) {
+    return numOne + numTwo;
 }
-function subtract(num1, num2) {
-    return num1 - num2;
-}
-
-function multiply(num1, num2) {
-    return num1 * num2;
+function subtract(numOne, numTwo) {
+    return numOne - numTwo;
 }
 
-function divide(num1, num2) {
-    return num1 / num2;
+function multiply(numOne, numTwo) {
+    return numOne * numTwo;
+}
+
+function divide(numOne, numTwo) {
+    return numOne / numTwo;
 }
 
 function populateDisplay(text) {
@@ -38,16 +37,16 @@ function operators(number, operator, numberTwo) {
                 return number = numberTwo;
                 break;
             case "+":
-                return number + numberTwo;
+                return add(number, numberTwo);
                 break;
             case "-":
-                return number - numberTwo;
+                return subtract(number, numberTwo);
                 break;
             case "*":
-                return number * numberTwo;
+                return multiply(number, numberTwo);
                 break;
             case "/":
-                return number / numberTwo;
+                return divide(number, numberTwo);
                 break;
             default:
                 break;
@@ -60,7 +59,9 @@ function operators(number, operator, numberTwo) {
 
 function operate(operator) {
 
-    // if a result has been obtained, skip 1 call of this function
+    /* if a result has been obtained, skip 1 call of this function, to prevent 
+    previousOperator from messing with result, otherwise it would return result = inputOperator 
+    which isn't true almost ever */
     if(passed){
         passed = false;
         input.value = "";
@@ -68,25 +69,25 @@ function operate(operator) {
         return;
     }
     
-    firstOperand = parseInt(input.value);
+    inputOperand = parseInt(input.value);
     input.value = "";
 
     if (result != 0) {
         switch (operator) {
             case "+":
-                result += firstOperand;
+                result += inputOperand;
                 break;
             case "-":
-                result -= firstOperand;
+                result -= inputOperand;
                 break;
             case "*":
-                result *= firstOperand;
+                result *= inputOperand;
                 break;
             case "/":
-                result /= firstOperand;
+                result /= inputOperand;
                 break;
             default:
-                result = operators(result, previousOperator, firstOperand);
+                result = operators(result, previousOperator, inputOperand);
                 input.value = result;  
                 passed = true;
                 break;
@@ -94,7 +95,7 @@ function operate(operator) {
     } 
     else 
     {
-        result = firstOperand;
+        result = inputOperand;
     }
 
     previousOperator = operator;
